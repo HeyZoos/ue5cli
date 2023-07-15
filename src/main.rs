@@ -1,3 +1,8 @@
+mod config;
+
 fn main() {
-    println!("Hello, world!");
+    config::set("foo", "bar");
+    dbg!(config::get("foo"));
+    config::clear();
+    config::set("key", "foo");
 }
