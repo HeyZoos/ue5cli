@@ -59,7 +59,7 @@ impl HashMap<String, String> {
 impl PathBuf {
     fn ensure(self) -> PathBuf {
         if let Some(parent) = &self.parent() {
-            std::fs::create_dir_all(&parent).unwrap();
+            std::fs::create_dir_all(parent).unwrap();
         }
 
         OpenOptions::new()
