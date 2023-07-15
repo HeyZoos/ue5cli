@@ -12,3 +12,4 @@ config = "0.13.3"
 dirs = "5.0.1"
 extend = "1.2.0"
 serde = { version = "1.0.171", features = ["derive"] }
+toml = "0.7.6"
