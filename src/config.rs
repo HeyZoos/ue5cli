@@ -27,10 +27,12 @@ fn config() -> Config {
     config_path().ensure().to_config()
 }
 
+fn config_dir() -> PathBuf {
+    dirs::config_dir().unwrap().join("ue5cli")
+}
+
 fn config_path() -> PathBuf {
-    dirs::config_dir()
-        .map(|p| p.join("ue5cli").join("config.toml"))
-        .unwrap()
+    config_dir().join("config.toml")
 }
 
 #[ext]
