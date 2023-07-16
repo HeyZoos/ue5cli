@@ -19,6 +19,18 @@ pub struct ThirdPartyLibraryDetails {
 }
 
 impl ThirdPartyLibraryDetails {
+    pub fn merge(&mut self, other: ThirdPartyLibraryDetails) {
+        self.prefix_dirs.append(&mut other.prefix_dirs.clone());
+        self.include_dirs.append(&mut other.include_dirs.clone());
+        self.link_dirs.append(&mut other.link_dirs.clone());
+        self.libs.append(&mut other.libs.clone());
+        self.system_libs.append(&mut other.system_libs.clone());
+        self.definitions.append(&mut other.definitions.clone());
+        self.cxx_flags.append(&mut other.cxx_flags.clone());
+        self.ld_flags.append(&mut other.ld_flags.clone());
+        self.cmake_flags.append(&mut other.cmake_flags.clone());
+    }
+
     pub fn get_compiler_flags(&self, engine_root: &str, fmt: &MyFormat) -> String {
         let mut all_strings = Vec::new();
         all_strings.extend(self.prefixed_strings(
